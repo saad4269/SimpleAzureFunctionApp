@@ -4,8 +4,8 @@
 # https://docs.microsoft.com/vsts/pipelines/languages/dotnet-core
 
 trigger:
- branches:
-   include:
+  branches:
+    include:
      - master
      - main
 pr:
