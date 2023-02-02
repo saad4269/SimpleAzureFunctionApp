@@ -21,6 +21,7 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'    
 - task: ArchiveFiles@2
+  displayName: 'app v1'
   inputs:
     rootFolderOrFile: '$(build.sourcesDirectory)'
     includeRootFolder: false
@@ -28,6 +29,7 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
 - task: ArchiveFiles@2
+  displayName: 'app v2'
   inputs:
     rootFolderOrFile: '$(build.sourcesDirectory)'
     includeRootFolder: false
@@ -37,5 +39,10 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
+    ArtifactName: 'App1'
+    publishLocation: 'Container'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'App2'
     publishLocation: 'Container'
