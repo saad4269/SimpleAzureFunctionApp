@@ -4,12 +4,13 @@
 # https://docs.microsoft.com/vsts/pipelines/languages/dotnet-core
 
 trigger:
-   - master
-   - main
+ branches:
+   include:
+     - master
+     - main
+   
 pool:
   vmImage: ubuntu-latest
-variables:
-  buildConfiguration: 'Release'
 steps:
 - task: DotNetCoreCLI@2
   inputs:
