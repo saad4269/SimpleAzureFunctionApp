@@ -6,8 +6,8 @@
 trigger:
   branches:
     include:
-      - master
       - main
+      - master
 pr:
 - main
    
